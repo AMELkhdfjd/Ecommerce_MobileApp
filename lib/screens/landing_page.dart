@@ -1,9 +1,12 @@
 // ignore_for_file: unused_import, use_key_in_widget_constructors, avoid_unnecessary_containers, prefer_const_constructors, duplicate_ignore
 
+import 'package:app/screens/homePage.dart';
+import 'package:app/screens/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../constants.dart';
+
 
 class Landingpage extends StatelessWidget {
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
@@ -21,13 +24,7 @@ class Landingpage extends StatelessWidget {
             )));
           }
           if (snapshot.connectionState == ConnectionState.done) {
-            return Scaffold(
-                body: Container(
-                    child: Center(
-                        child: Text(
-              "Firebase App initialisation",
-              style: Constants.regularHeading,
-            ))));
+            return loginPage();
           } else {
             return Scaffold(
                 body: Container(
